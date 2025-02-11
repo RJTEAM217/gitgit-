@@ -393,3 +393,80 @@ mainacti
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SMS Details</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Received SMS</h1>
+    
+    <% if (smsData.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sender</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% smsData.forEach(sms => { %>
+                    <tr>
+                        <td><%= sms.sender %></td>
+                        <td><%= sms.title %></td>
+                        <td><%= sms.body %></td>
+                        <td><%= sms.timestamp %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No SMS found for this device.</p>
+    <% } %>
+    
+    <br>
+    <a href="/dashboard">Go Back</a>
+</body>
+</html>
+
